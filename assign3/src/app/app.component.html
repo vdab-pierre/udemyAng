@@ -1,0 +1,7 @@
+<img [src]="'../assets/images/assign3.png'">
+<button (click)="toggleDisplayPassword()">Display Details</button>
+<p *ngIf="displayPassword">Secret password = tuna</p>
+
+<ul>
+  <li [ngStyle]="{backgroundColor: i >=4?'blue':'white'}" [ngClass]="{whiteText:i>=4}" *ngFor="let klik of kliks;let i = index">klik op {{klik}}</li>
+</ul>

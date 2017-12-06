@@ -3,25 +3,30 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   //selector: 'app-servers',
   //of
-  selector:'[app-servers]', // maar nu moeten we in de html een el hebben met als attribuut die selector
+  selector: '[app-servers]', // maar nu moeten we in de html een el hebben met als attribuut die selector
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
-allowNewServer=false;
-serverCreationStatus="No server was created!";
-serverName='testserver';
-  constructor() { 
-    setTimeout(()=>{
-      this.allowNewServer=true;
-    },2000);
+  allowNewServer = false;
+  serverCreationStatus = "No server was created!";
+  serverName = '';
+  serverCreated = false;
+  servers=['Testserver','Testserver2'];
+  constructor() {
+    setTimeout(() => {
+      this.allowNewServer = true;
+    }, 2000);
   }
 
   ngOnInit() {
   }
 
-  onCreateServer(){
-    this.serverCreationStatus='Server was created! Name is '+this.serverName;
+  onCreateServer() {
+    this.serverCreated=true;
+    this.servers.push(this.serverName);
+    this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
+
   }
 
   /* onUpdateServerName(event:Event){
